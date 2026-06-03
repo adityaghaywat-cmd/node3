@@ -8,13 +8,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  fs.readFile(path.join(__dirname, 'data.json'), 'utf8', (err, data) => {
-    if (err) {
-      return res.status(500).json({ error: 'Unable to read JSON file' });
-    }
-
-    res.json(JSON.parse(data));
-  });
+    res.send(`
+        <html>
+            <head>
+                <title>Jenkins Node App</title>
+            </head>
+            <body>
+                <h1>Hello Codingwale...</h1>
+            </body>
+        </html>
+    `);
 });
 
 app.listen(PORT, () => {
